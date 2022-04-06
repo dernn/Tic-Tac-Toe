@@ -55,35 +55,16 @@ def turn():
 
 
 def win_check():
-    for i in range(3):
+    winbox = (((0, 0), (0, 1), (0, 2)), ((1, 0), (1, 1), (1, 2)), ((2, 0), (2, 1), (2, 2)),
+              ((0, 2), (1, 1), (2, 0)), ((0, 0), (1, 1), (2, 2)), ((0, 0), (1, 0), (2, 0)),
+              ((0, 1), (1, 1), (2, 1)), ((0, 2), (1, 2), (2, 2)))
+    for line in winbox:
         checkline = []
-        for j in range(3):
-            checkline.append(field[i][j])
-        if checkline[0] == checkline[1] == checkline[2] != ' ':
+        for i in line:
+            checkline.append(field[i[0]][i[1]])
+        if len(set(checkline)) == 1 and ' ' not in checkline:
             game_over(checkline)
             return True
-
-    for i in range(3):
-        checkline = []
-        for j in range(3):
-            checkline.append(field[j][i])
-        if checkline[0] == checkline[1] == checkline[2] != ' ':
-            game_over(checkline)
-            return True
-
-    checkline = []
-    for i in range(3):
-        checkline.append(field[i][i])
-    if checkline[0] == checkline[1] == checkline[2] != ' ':
-        game_over(checkline)
-        return True
-
-    checkline = []
-    for i in range(3):
-        checkline.append(field[i][2 - i])
-    if checkline[0] == checkline[1] == checkline[2] != ' ':
-        game_over(checkline)
-        return True
 
 
 salut()
