@@ -1,10 +1,3 @@
-import os
-
-
-def cls():
-    os.system('cls')
-
-
 def game_over(checkline):
     print(f'~~~~~~~~~~~~~')
     print(f'   {checkline[0]} WINS!   ')
@@ -18,7 +11,7 @@ def salut():
     print('===========================')
     print()
     input('Press Enter to continue...')
-    cls()
+    print()
     print('Guide: ++++++++++++++++++++')
     print('|| input format: x y     ||')
     print('|| x  -  string          ||')
@@ -29,7 +22,7 @@ def salut():
 
 
 def show():
-    cls()
+    print()
     print('  | 0 | 1 | 2 |')
     for i, row in enumerate(field):
         row_str = str(i) + ' | ' + ' | '.join(row) + ' | '
@@ -119,7 +112,6 @@ while True:
 
     if num == 7:
         print('Endgame!')
-
     if num == 9:
         print('Draw!')
         break
